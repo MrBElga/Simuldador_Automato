@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Modal from 'react-modal';
 import { Graphviz } from 'graphviz-react';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import { Header } from "../../components/Header/Header";
 import "./AutomatoFinito.scss";
 import "./ModalState.scss";
 import "./ModalTransition.scss"
@@ -18,22 +17,17 @@ export function AutomatoFinito() {
     const [startCheck, setStartCheck] = useState(false)
     const [finalCheck, setFinalCheck] = useState(false)
     const [clickedNode, setClickedNode] = useState("")
-    const [countState, setCountStates] = useState(1)
+    const [countState, setCountState] = useState(1)
     const [states, setStates] = useState([]) //{ id: 1, name: "", start: false, final: false}
-    const [countTransition, setCountTransitions] = useState(1)
+    const [countTransition, setCountTransition] = useState(1)
     const [transitions, setTransitions] = useState([]) //{ id: 1, origin_state: "", input_char: "", dest_state: ""}
     const [nodesName, setNodesName] = useState([])
-    const [modalStepByStepIsOpen, setModalStepByStepOpen] = useState(false)
-    const [stepStringArray, setStepStringArray] = useState([])
     const [singleTest, setSingleTest] = useState({ id: 1, string: "", accepted: "" })
     const [count, setCount] = useState(2)
     const [tests, setTests] = useState([{ id: 1, string: "", accepted: "" },])
+    const [, setStepStringArray] = useState([]);
     let stepString = []
 
-    const handleStepByStepModal = () => {
-        if (validateAF()) setModalStepByStepOpen(prev => !prev)
-        else setModalStepByStepOpen(false)
-    }
 
     //Add State
     const [modalAddStateIsOpen, setModalAddStateIsOpen] = useState(false)
@@ -129,7 +123,7 @@ export function AutomatoFinito() {
             if (aux) {
                 let statesArray = ([...states, { id: countState, name: value, start: false, final: false }])
                 setStates(statesArray)
-                setCountStates(countState + 1)
+                setCountState(countState + 1)
             }
             handleAddStateModal()
         }
@@ -167,7 +161,7 @@ export function AutomatoFinito() {
             }
 
             setTransitions(transitionsArray)
-            setCountTransitions(countTransition + 1)
+            setCountTransition(countTransition + 1)
             handleAddTransitionModal()
         }
     }
@@ -343,7 +337,6 @@ export function AutomatoFinito() {
                 stepString = []
                 if (validateRule(grammar, rule, str, currNode)) {
                     setStepStringArray(stepString)
-                    return true
                 };
             }
             return false
@@ -459,27 +452,10 @@ export function AutomatoFinito() {
 
     return (
         <div>
-            <Header />
+          
             <div className="container">
 
-                <Modal
-                    closeTimeoutMS={100}
-                    isOpen={modalStepByStepIsOpen}
-                    onRequestClose={handleStepByStepModal}
-                    className="click-node-content"
-                    overlayClassName="click-node-overlay"
-                >
-                    <div className="click-node-box">
-                        {stepStringArray.map((string, index) => (
-                            <p key={`${string}-${index}`}>{string}</p>
-                        ))}
-                        <div className="click-node-buttons">
-
-                            <button className="cancel-node-button" onClick={handleStepByStepModal}>fechar</button>
-                        </div>
-                    </div>
-                </Modal>
-
+                
                 <Modal
                     closeTimeoutMS={100}
                     isOpen={modalClickNodeIsOpen}
