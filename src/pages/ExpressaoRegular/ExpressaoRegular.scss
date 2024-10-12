@@ -1,0 +1,178 @@
+$background: #282a36;
+$foreground: #f8f8f2;
+$cyan: #3f1ff8;
+$green: #50fa7b;
+$orange: #ffb86c;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
+$selection: #44475a;
+$input-bg: #434854;
+
+.page-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .RegEX {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        label {
+            width: 65%;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $cyan;
+            padding-left: 0.5rem;
+
+            .error-msg {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: $red;
+            }
+        }
+
+        input {
+            width: 65%;
+            height: 2.5rem;
+            background: $input-bg;
+            color: $foreground;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            border: 0;
+            &:focus {
+                outline: 1px solid $cyan;
+            }
+        }
+    }
+
+    .tests-title {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+
+        .science-icon {
+            width: 40px;
+            height: 40px;
+            color: $foreground;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 25px;
+            color: $foreground;
+        }
+    }
+
+    .tests-container {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .string-container {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            .remove-button {
+                width: 2rem;
+                height: 2rem;
+                margin-top: 2rem;
+                margin-right: 1rem;
+                color: $selection;
+                font-size: 1.5rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+                &:hover {
+                    opacity: 0.6;
+                    color: $red;
+                }
+            }
+
+            .disable-button {
+                display: none;
+            }
+
+            .fix-margin {
+                margin-left: 3rem;
+            }
+
+            .box-string {
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .base {
+                    background: $input-bg;
+                }
+
+                .accepted {
+                    background: $green;
+                }
+
+                .rejected {
+                    background: $red;
+                }
+
+                label {
+                    width: 100%;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: $cyan;
+                    padding-left: 0.5rem;
+                }
+
+                input {
+                    width: 100%;
+                    height: 3rem;
+                    background: $input-bg;
+                    color: $foreground;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    padding-left: 1.5rem;
+                    border: 0;
+                    &:focus {
+                        outline: 1px solid $cyan;
+                    }
+                }
+            }
+        }
+
+        .box-button {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 4rem;
+
+            .add-button {
+                width: 70%;
+                height: 3rem;
+                border: none;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: bold;
+                color: $foreground;
+                background: $cyan;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+                &:hover {
+                    opacity: 0.6;
+                    background: $green;
+                }
+            }
+        }
+    }
+}
