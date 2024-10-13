@@ -25,7 +25,7 @@ export function ExpressaoRegular() {
             })
         }
         else{
-    
+            regex_input.style.background = "#D8D2C2";
             regex_label.innerHTML = "EXPRESSÃO REGULAR";
 
             newInputFields = tests.map(i => {
@@ -88,7 +88,7 @@ export function ExpressaoRegular() {
             <h1 className="title">Simulador de Expressão Regular</h1>
             <div className="page-content">
               <div className="RegEX">
-                <label id="regex-label" htmlFor="regex-input">XPRESSÃO REGULAR</label>
+                <label id="regex-label" htmlFor="regex-input">EXPRESSÃO REGULAR</label>
                 <input 
                   type="text" 
                   name="regex-input" 
