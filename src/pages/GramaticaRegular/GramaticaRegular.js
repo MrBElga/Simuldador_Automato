@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {Header} from "../header/header";
+import grImage from './gr.png';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import "./GramaticaRegular.scss"
 
@@ -20,10 +21,17 @@ export function GramaticaRegular() {
     }
 
     const handleRemoveFields = id => {
-        const values = [...rules];
-        values.splice(values.findIndex(value => value.id === id), 1)
-        setRules(values)
-    }
+        console.log(id);
+        if (id === 1) {
+            alert("O primeiro item não pode ser removido.");
+            return;
+        } else {
+            const values = [...rules];
+            values.splice(values.findIndex(value => value.id === id), 1);
+            setRules(values);
+        }
+    };
+    
 
     const handleChangeNtInput = (id, event) => {
         const isAlpha = (ch) => {
@@ -100,41 +108,51 @@ export function GramaticaRegular() {
 
 
     const grammarValidate = string => {
-        if (!aux) return false;
+        if (aux) {
+            const validator = []
 
-        const grammar = handleGrammar();
-        const validator = getValidator(grammar);
+            const grammar = handleGrammar()
 
-        if (validator.every(validateField => validateField === 'D')) {
-            return grammar[0].terminal.some(rule => validate(grammar, rule, string, 'D'));
-        } else if (validator.every(validateField => validateField === 'E')) {
-            return grammar[0].terminal.some(rule => validate(grammar, rule, string, 'E'));
-        } else {
-            return false;
-        }
-    }
 
-    const getValidator = (grammar) => {
-        const validator = [];
-
-        grammar.forEach(input => {
-            input.terminal.forEach(rule => {
-                if (rule.length > 1 && rule.replace(/[^A-Z]/g, '').length <= 1) {
-                    for (let i = 0; i < rule.length; i++) {
-                        if (rule[i] === rule[i].toUpperCase() && i === rule.length - 1) {
-                            validator.push('D');
-                            break;
-                        }
-                        if (rule[i] === rule[i].toUpperCase() && i === 0) {
-                            validator.push('E');
-                            break;
+            grammar.forEach(input => {
+                input.terminal.forEach(rule => {
+                    if (rule.length > 1) {
+                        if (rule.replace(/[^A-Z]/g, '').length <= 1) {
+                            for (let i = 0; i < rule.length; i++) {
+                                if (rule[i] === rule[i].toUpperCase() && i === rule.length - 1) {
+                                    validator.push('D')
+                                    break
+                                }
+                                if (rule[i] === rule[i].toUpperCase() && i === 0) {
+                                    validator.push('E')
+                                    break
+                                }
+                            }
                         }
                     }
-                }
-            });
-        });
+                })
+            })
+            if (validator.filter(validateField => validateField === 'D').length === validator.length) {
+                for (let rule of grammar[0].terminal) {
+                    if (validate(grammar, rule, string, 'D')) {
+                        return true
+                    }
 
-        return validator;
+                }
+            }
+
+            else if (validator.filter(validateField => validateField === 'E').length === validator.length) {
+                for (let rule of grammar[0].terminal) {
+                    if (validate(grammar, rule, string, 'E')) {
+                        return true
+                    }
+                }
+            }
+
+            else {
+                return false
+            }
+        }
     }
 
     const validate = (grammar, rule, string, type) => {
@@ -178,6 +196,11 @@ export function GramaticaRegular() {
         }
     }
 
+    const handleValidator = (terminal, nonterminal) => {
+        if (terminal === nonterminal) {
+            aux = false
+        }
+    }
     return (
         <div>
             <Header />
@@ -185,16 +208,17 @@ export function GramaticaRegular() {
                 <h1 className="title">Simulador de Gramatica Regular</h1>
                 <div className="page-content">
                     <div className="instructions-container">
-                        <p>Insira sua Gramática Regular (GLUD ou GLUE) abaixo. 
-                            O símbolo inicial já foi preenchido automaticamente.</p>
-                        <p>Preencha o lado esquerdo com o símbolo não-terminal de cada produção.</p>
-                        <p>Use "ε" (épsilon) para representar uma produção vazia.</p>
+                        <p>Insira sua Gramática Regular (GLUD ou GLUE) nos campos abaixo. O símbolo inicial já está preenchido automaticamente.</p>
+                        <p>Preencha o lado esquerdo com o símbolo não-terminal de cada produção, representando as regras de transformação.</p>
+                        <p>Utilize "ε" (épsilon) para indicar uma produção vazia, quando necessário.</p>
+
                     </div>
 
 
                     
 
                     <div className="grammar-container">
+                        <img src={grImage} alt="automatos" />
                         {rules.map(rule => (
                             <div className="production-container" key={rule.id}>
                                 <div className="production-rule">
@@ -203,7 +227,13 @@ export function GramaticaRegular() {
                                     <input name="terminal" type="text" value={rule.terminal} onChange={event => handleChangeInput(rule.id, event)} placeholder="ε" maxLength={2} />
                                 </div>
                                 <div className={`error-sintax ${rule.terminal === rule.nonterminal ? 'block' : 'inactive'}`} >Erro de Sintaxe</div>
-                                <RemoveCircleOutlineIcon  className={`removeButton ${rule.id === 1 ? 'disableButton' : ''}`} disabled={rule.id === 1} onClick={() => handleRemoveFields(rule.id)}/>
+                                {handleValidator(rule.terminal, rule.nonterminal)}
+                                <RemoveCircleOutlineIcon 
+                                    className={`removeButton ${rule.id === 1 ? '' : ''}`} 
+                                    onClick={() => handleRemoveFields(rule.id)} 
+                                />
+
+
                             </div>
                         ))}
                         <button className="addButton" onClick={handleAddRules}>+ Adicionar Regra</button>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Header } from '../header/header';
+import homeImage from './home1.png';
 import "../Home/Home.scss";
-
 
 export function Home() {
     const [modalContent, setModalContent] = useState('');
@@ -22,11 +22,16 @@ export function Home() {
         <Header />
         <div className="container">
             <h1 className="title">Simulador</h1>
-            <span>Selecione uma opção:</span>
-            <Link to="/expressaoregular">Expressões Regulares</Link>
-            <Link to="/gramaticaregular">Gramática Regular</Link>
-            <Link to="/automatofinito">Autômatos</Link>
-            
+            <span className="subtitle">Selecione uma opção:</span>
+
+            {/* Links organizados em grade */}
+            <div className="link-buttons">
+                <Link to="/expressaoregular">Expressões Regulares</Link>
+                <Link to="/gramaticaregular">Gramática Regular</Link>
+                <Link to="/automatofinito">Autômatos</Link>
+            </div>
+
+            {/* Botões informativos */}
             <div className="info-buttons">
                 <button onClick={() => handleOpenModal('Expressões Regulares')}>
                     O que são Expressões Regulares?
@@ -38,7 +43,12 @@ export function Home() {
                     O que são Autômatos?
                 </button>
             </div>
+            
+            <div className="image-container">
+                <img src={homeImage} alt="automatos" />
+            </div>
 
+            {/* Modal */}
             {isModalOpen && (
                 <div className="modal-background" onClick={handleCloseModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -51,7 +61,6 @@ export function Home() {
         </div>
         </>
     );
-
 }
 
 function getModalText(content) {
