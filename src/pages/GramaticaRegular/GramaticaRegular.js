@@ -178,11 +178,6 @@ export function GramaticaRegular() {
         }
     }
 
-    const handleValidator = (terminal, nonterminal) => {
-        if (terminal === nonterminal) {
-            aux = false
-        }
-    }
     return (
         <div>
             <Header />
@@ -233,10 +228,10 @@ export function GramaticaRegular() {
                                     </thead>
                                     <tbody>
                                         {strings.map((string, index) => (
-                                            <tr key={index} className={grammarValidate(string) ? 'accepted' : 'rejected'}>
+                                            <tr key={string} className={grammarValidate(string) ? 'accepted' : 'rejected'}>
 
                                                 <td>
-                                                    {index}
+                                                    {index + 1}
                                                 </td>
                                                 <td>
                                                     {`"${string}"`}
