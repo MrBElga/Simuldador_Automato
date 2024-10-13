@@ -1,12 +1,12 @@
 $background: #FAF7F0;
-$foreground: #333333; 
-$cyan: #4A4947; 
+$foreground: #333333;
+$cyan: #4A4947;
 $green: #D8D2C2;
 $orange: #ffb86c;
-$purple: #242424; 
-$red: #ff5555; 
-$yellow: #4A4947; 
-$selection: #FFE69A; 
+$purple: #242424;
+$red: #ff5555;
+$yellow: #4A4947;
+$selection: #FFE69A;
 
 .container {
     width: 100%;
@@ -15,64 +15,91 @@ $selection: #FFE69A;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 3rem 1rem;
 
     .title {
-        margin-top: 4rem;
         font-size: 3rem;
-        text-shadow: 2px 2px $selection; 
-    }
-
-    span {
-        margin-top: 2rem;
-        font-size: 1.5rem;
-        color: $cyan; 
-        text-shadow: 1px 1px $selection; 
-    }
-
-    a {
-        background-color: $cyan; 
-        margin-top: 2rem;
-        width: 100%;
-        max-width: 300px;
-        padding: 1.3rem 0;
-        border-radius: 15px;
-        border: none;
+        text-shadow: 2px 2px $selection;
+        margin-bottom: 2rem;
         text-align: center;
-        text-decoration: none;
-        font-size: 1rem;
-        color: $background;
-        font-weight: bold;
-        transition: 0.3s ease-in-out;
-
-        &:hover {
-            cursor: pointer;
-            background-color: $green; 
-            color: $background; 
-            transform: scale(1.05);
-        }
     }
 
+    .subtitle {
+        font-size: 1.5rem;
+        color: $cyan;
+        text-shadow: 1px 1px $selection;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    /* Links em formato de grid */
+    .link-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 3rem;
+        width: 100%;
+        max-width: 800px;
+
+        a {
+            background-color: $cyan;
+            padding: 1.3rem 0;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            color: $background;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $green;
+                transform: scale(1.05);
+                cursor: pointer;
+            }
+
+        }
+        
+    }
+
+    /* Botões informativos */
     .info-buttons {
-        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+        max-width: 800px;
 
         button {
-            margin: 0.5rem;
-            background-color: $cyan;
-            color: $background;
-            padding: 0.7rem 1.5rem;
+            padding: 1rem;
             border: none;
             border-radius: 10px;
+            background-color: $cyan;
+            color: $background;
             font-size: 1rem;
             cursor: pointer;
             transition: 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
 
             &:hover {
                 background-color: $green;
             }
         }
+
+        button:nth-child(1) { animation-delay: 0.1s; }
+        button:nth-child(2) { animation-delay: 0.3s; }
+        button:nth-child(3) { animation-delay: 0.5s; }
     }
 
+    /* Animação */
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modal */
     .modal-background {
         position: fixed;
         top: 0;
@@ -115,6 +142,16 @@ $selection: #FFE69A;
             &:hover {
                 background-color: darken($red, 10%);
             }
+        }
+    }
+    .image-container {
+        margin-top: 2rem;
+        img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: $background;
         }
     }
 }
