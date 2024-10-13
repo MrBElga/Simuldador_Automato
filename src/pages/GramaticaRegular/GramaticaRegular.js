@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Header} from "../header/header";
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import "./GramaticaRegular.scss"
 
@@ -194,8 +195,9 @@ export function GramaticaRegular() {
     }
     return (
         <div>
+            <Header />
             <div className="container">
-                <h1 className="title">Simulador de GR</h1>
+                <h1 className="title">Simulador de Gramatica Regular</h1>
                 <div className="page-content">
                     <div className="instructions-container">
                         <p>Insira sua Gramática Regular (GLUD ou GLUE) abaixo. 

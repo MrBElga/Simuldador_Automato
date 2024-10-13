@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { Graphviz } from 'graphviz-react'
+import {Header} from "../header/header"
 import Modal from 'react-modal';
-import { Graphviz } from 'graphviz-react';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+
 import "./AutomatoFinito.scss";
 import "./ModalState.scss";
 import "./ModalTransition.scss"
@@ -451,8 +453,10 @@ export function AutomatoFinito() {
     }
 
     return (
+        <>
+        <Header />
         <div>
-          
+        
             <div className="container">
 
                 
@@ -640,5 +644,6 @@ export function AutomatoFinito() {
                 </div>
             </div>
         </div>
+        </>
     )
 }

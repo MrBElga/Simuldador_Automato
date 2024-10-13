@@ -1,15 +1,23 @@
-// Add State Modal
+$background: #FAF7F0;
+$foreground: #333333;
+$cyan: #4A4947;
+$green: #D8D2C2;
+$orange: #3a3a39;
+$purple: #242424;
+$red: #ff5555;
+$yellow: #4A4947;
+$selection: #FFE69A;
 .add-state-content, .remove-state-content {
     width: 40%;
     height: 20rem;
-    border: 1px solid #ccc;
+    border: 1px solid #333333;
     position: absolute;
     margin-top: 10rem;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    background: #282A36;
+    background: $background;
     overflow: auto;
     border-radius: 20px;
     outline: none;
@@ -35,12 +43,12 @@
     font-family: 'Poppins', sans-serif;
 
     h2 {
-        color: #FFB86C;
+        color: $orange;
     }
 
     p {
         margin-top: 3rem;
-        color: #F8F8F2;
+        color: $purple;
     }
 
     input {
@@ -54,9 +62,9 @@
         padding-right: calc(.75rem - 1px);
         border-radius: .375rem;
         outline: 0;
-        border: 1px solid #50FA7B;
-        background: #434854;
-        color: #F8F8F2;
+        border: 1px solid #faab50;
+        background: $green;
+        color: $purple;
         &:focus {
             border: 1px solid #8BE9FD;
             outline: 2px solid #6272A4;
@@ -70,35 +78,56 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-
+        color: $purple;
+    
         div {
             width: 40%;
             display: flex;
             flex-direction: column;
             align-items: center;
-
+    
             h3 {
                 margin-bottom: 1rem;
-                color: #FFB86C;
+                color: #1d1d1d;
             }
-
+    
             select {
                 width: 100%;
-                height: 2rem;
+             
                 border: 1px solid #6272A4;
                 border-radius: 5px;
                 font-size: 1.2rem;
                 font-weight: bold;
                 font-family: 'Poppins', sans-serif;
-                color: #F8F8F2;
-                background: #434854;
+                color: #000000;  // Texto em preto no select
+                background: $green;
+    
+                // Estilo quando em foco
                 &:focus {
                     border: 1px solid #8BE9FD;
+                    outline: 2px solid #6272A4;
+                }
+    
+                // Estilo ao passar o mouse
+                &:hover {
+                    color: #313131;  // Texto em amarelo claro no hover
+                }
+    
+                // Estilo das opções
+                option {
+                    color: #000000;  // Texto das opções em preto
+                    background: $purple;  // Fundo das opções
+                }
+    
+                // Garantir que a seleção será visível
+                option:checked {
+                    background: #FFBB00;  // Cor de fundo da opção selecionada
+                    color: #000000;  // Cor do texto da opção selecionada
                 }
             }
         }
     }
-
+    
     .add-state-buttons, .remove-state-buttons {
         width: 70%;
         height: 3rem;
@@ -117,7 +146,7 @@
             font-weight: bold;
             font-family: 'Poppins', sans-serif;
             color: #F8F8F2;
-            background: #36A3C2;
+            background: $purple;
             cursor: pointer;
             transition: 0.2s ease-in-out;
             &:hover {

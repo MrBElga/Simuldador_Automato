@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Header } from "../header/header";
 import QuizIcon from '@mui/icons-material/Quiz';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import "./ExpressaoRegular.scss"
@@ -24,7 +25,7 @@ export function ExpressaoRegular() {
             })
         }
         else{
-            regex_input.style.background = "#434854";
+    
             regex_label.innerHTML = "EXPRESSÃO REGULAR";
 
             newInputFields = tests.map(i => {
@@ -82,11 +83,12 @@ export function ExpressaoRegular() {
     }
     return (
         <div> 
+            <Header />
           <div className="container">
-            <h1 className="title">Simulador de ER</h1>
+            <h1 className="title">Simulador de Expressão Regular</h1>
             <div className="page-content">
               <div className="RegEX">
-                <label id="regex-label" htmlFor="regex-input">Expressão Regular</label>
+                <label id="regex-label" htmlFor="regex-input">XPRESSÃO REGULAR</label>
                 <input 
                   type="text" 
                   name="regex-input" 

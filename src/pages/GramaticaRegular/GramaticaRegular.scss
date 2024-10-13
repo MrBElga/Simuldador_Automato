@@ -1,14 +1,25 @@
+$background: #FAF7F0;
+$foreground: #333333;
+$cyan: #4A4947;
+$green: #D8D2C2;
+$orange: #3a3a39;
+$purple: #242424;
+$red: #ff5555;
+$yellow: #4A4947;
+$selection: #FFE69A;
+$foreTeste: #000000; 
+$input-bg: #E9ECEF; 
 .page-content {
     text-align: left;
     width: 100%;
 
     p {
         padding: 1rem 5rem;
-        color: #F8F8F2; // Cor clara para melhor contraste com o fundo escuro.
+        color: #333; // Cor escura para melhor contraste com o fundo claro.
     }
 
     ul {
-        list-style: circle #FFF; // Cores claras para os bullets também.
+        list-style: circle #333; // Cores escuras para os bullets.
 
         li p {
             padding: 0 5rem;
@@ -36,27 +47,27 @@
                 input {
                     height: 2rem;
                     text-align: center;
-                    background-color: #434854; // Fundo escuro dos campos de input.
-                    color: #F8F8F2; // Texto claro.
+                    background-color: $green; // Fundo claro dos campos de input.
+                    color: #333; // Texto escuro.
                     border-radius: 5px;
-                    border: none;
+                    border: 1px solid #ccc;
 
                     &:focus {
-                        outline: 1px solid #BD93F9; // Borda roxa ao focar.
+                        outline: 1px solid #36A3C2; // Borda azul ao focar.
                     }
                 }
 
                 .arrow {
                     padding: 0 1rem !important;
-                    color: #BD93F9; // Seta com cor roxa.
+                    color: $red; // Seta com cor azul.
                 }
             }
 
             .removeButton {
                 cursor: pointer;
                 border-radius: 50%;
-                color: #F8F8F2;
-                background: #44475A; // Botão de remoção com fundo escuro.
+                color: #fff;
+                background: #FF5555; // Botão de remoção com fundo vermelho claro.
                 height: 1.875rem;
                 width: 1.875rem;
                 border: none;
@@ -73,7 +84,7 @@
             }
 
             .error-sintax {
-                color: #F8F8F2; // Texto claro no erro.
+                color: #fff; // Texto claro no erro.
                 padding: 0.5rem;
                 display: block;
                 border-radius: 5px;
@@ -91,8 +102,8 @@
             border: none;
             border-radius: 10px;
             font-weight: 700;
-            color: #F8F8F2;
-            background: #6272A4; // Fundo roxo para o botão de adicionar.
+            color: #fff;
+            background: $cyan; // Fundo azul para o botão de adicionar.
             cursor: pointer;
             transition: 0.2s ease-in-out;
 
@@ -101,28 +112,29 @@
             }
         }
     }
+
     .instructions-container {
         align-items: center;
-        background-color: #44475A;
+        background-color: $green;
         border: 1px solid #ddd;
         border-radius: 8px;
         margin-bottom: 20px;
         justify-content: space-between;
-        
+
         p {
-            color: #F8F8F2;
+            color: #333;
             font-size: 1.2rem;
             font-weight: 700;
             align-items: center;
-            
         }
     }
+
     .test-container {
         margin: 2rem 5rem;
         padding-bottom: 5rem;
 
         h3 {
-            color: #BD93F9;
+            color: $orange;
             font-weight: 700;
             font-size: 1.6rem;
         }
@@ -140,15 +152,15 @@
                     font-size: 0.8rem;
                     font-weight: 700;
                     margin-top: 1rem;
-                    background-color: #44475A; // Fundo escuro no textarea.
-                    color: #F8F8F2; // Texto claro.
-                    border: none;
+                    background-color: $green; 
+                    color: #333; 
+                    border: 1px solid #ccc;
                     border-radius: 5px;
                 }
 
                 span {
                     font-size: 1rem;
-                    color: #F8F8F2;
+                    color: #333;
                 }
             }
 
@@ -162,25 +174,25 @@
                     text-align: center;
 
                     .rejected {
-                        background: rgba(255, 85, 85, 0.7); // Vermelho translúcido.
+                        background: rgba(255, 85, 85, 0.2); // Vermelho translúcido claro.
                     }
 
                     .accepted {
-                        background: rgba(80, 250, 123, 0.7); // Verde translúcido.
+                        background: rgba(80, 250, 123, 0.2); // Verde translúcido claro.
                     }
                 }
 
                 table th {
-                    color: #BD93F9;
-                    border: 2px solid #44475A; // Títulos com borda escura.
+                    color: $cyan;
+                    border: 2px solid #ddd; // Títulos com borda clara.
+                    background-color: $green;
                 }
 
                 table td {
-                    color: #F8F8F2;
-                    border: 2px solid #44475A;
+                    color: #333;
+                    border: 2px solid #ddd;
+             
                 }
-       
-                
             }
         }
     }
