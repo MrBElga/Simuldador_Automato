@@ -28,7 +28,7 @@ $input-bg: #E9ECEF;
             font-weight: 700;
             color: $cyan;
             padding-left: 0.5rem;
-
+            
             .error-msg {
                 font-size: 1.2rem;
                 font-weight: 700;
@@ -113,7 +113,7 @@ $input-bg: #E9ECEF;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-
+                
                 .base {
                     background: $input-bg;
                 }
@@ -137,7 +137,7 @@ $input-bg: #E9ECEF;
                 input {
                     width: 100%;
                     height: 3rem;
-                    background: $input-bg;
+                    background: $green;
                     color: $foreTeste;
                     border-radius: 10px;
                     font-size: 1rem;
