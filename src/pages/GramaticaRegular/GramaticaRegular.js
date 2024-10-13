@@ -100,51 +100,41 @@ export function GramaticaRegular() {
 
 
     const grammarValidate = string => {
-        if (aux) {
-            const validator = []
+        if (!aux) return false;
 
-            const grammar = handleGrammar()
+        const grammar = handleGrammar();
+        const validator = getValidator(grammar);
 
+        if (validator.every(validateField => validateField === 'D')) {
+            return grammar[0].terminal.some(rule => validate(grammar, rule, string, 'D'));
+        } else if (validator.every(validateField => validateField === 'E')) {
+            return grammar[0].terminal.some(rule => validate(grammar, rule, string, 'E'));
+        } else {
+            return false;
+        }
+    }
 
-            grammar.forEach(input => {
-                input.terminal.forEach(rule => {
-                    if (rule.length > 1) {
-                        if (rule.replace(/[^A-Z]/g, '').length <= 1) {
-                            for (let i = 0; i < rule.length; i++) {
-                                if (rule[i] === rule[i].toUpperCase() && i === rule.length - 1) {
-                                    validator.push('D')
-                                    break
-                                }
-                                if (rule[i] === rule[i].toUpperCase() && i === 0) {
-                                    validator.push('E')
-                                    break
-                                }
-                            }
+    const getValidator = (grammar) => {
+        const validator = [];
+
+        grammar.forEach(input => {
+            input.terminal.forEach(rule => {
+                if (rule.length > 1 && rule.replace(/[^A-Z]/g, '').length <= 1) {
+                    for (let i = 0; i < rule.length; i++) {
+                        if (rule[i] === rule[i].toUpperCase() && i === rule.length - 1) {
+                            validator.push('D');
+                            break;
+                        }
+                        if (rule[i] === rule[i].toUpperCase() && i === 0) {
+                            validator.push('E');
+                            break;
                         }
                     }
-                })
-            })
-            if (validator.filter(validateField => validateField === 'D').length === validator.length) {
-                for (let rule of grammar[0].terminal) {
-                    if (validate(grammar, rule, string, 'D')) {
-                        return true
-                    }
-
                 }
-            }
+            });
+        });
 
-            else if (validator.filter(validateField => validateField === 'E').length === validator.length) {
-                for (let rule of grammar[0].terminal) {
-                    if (validate(grammar, rule, string, 'E')) {
-                        return true
-                    }
-                }
-            }
-
-            else {
-                return false
-            }
-        }
+        return validator;
     }
 
     const validate = (grammar, rule, string, type) => {
@@ -218,7 +208,6 @@ export function GramaticaRegular() {
                                     <input name="terminal" type="text" value={rule.terminal} onChange={event => handleChangeInput(rule.id, event)} placeholder="ε" maxLength={2} />
                                 </div>
                                 <div className={`error-sintax ${rule.terminal === rule.nonterminal ? 'block' : 'inactive'}`} >Erro de Sintaxe</div>
-                                {handleValidator(rule.terminal, rule.nonterminal)}
                                 <RemoveCircleOutlineIcon  className={`removeButton ${rule.id === 1 ? 'disableButton' : ''}`} disabled={rule.id === 1} onClick={() => handleRemoveFields(rule.id)}/>
                             </div>
                         ))}
