@@ -26,12 +26,18 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: #36A3C2; /* Cor do link */
+  color: #181818; /* Cor do link */
   transition: color 0.3s ease;
 }
-
+label {
+  width: 90%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;  // Verde vintage
+  padding-left: 0.5rem;
+}
 a:hover {
-  color: #007B8C; /* Cor do link ao passar o mouse */
+  color: #000000; /* Cor do link ao passar o mouse */
 }
 
 button {
@@ -51,6 +57,6 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #36A3C2;
+  border-color: #ffc400;
 }
 

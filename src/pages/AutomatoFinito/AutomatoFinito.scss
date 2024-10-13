@@ -1,8 +1,18 @@
+$background: #FAF7F0;
+$foreground: #333333;
+$cyan: #4A4947;
+$green: #D8D2C2;
+$orange: #3a3a39;
+$purple: #242424;
+$red: #ff5555;
+$yellow: #4A4947;
+$selection: #FFE69A;
+
 .page-content {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background: #282A36;
+    background: $background;
     color: #F8F8F2;
 
     .none {
@@ -27,7 +37,7 @@
             font-weight: bold;
             font-family: 'Poppins', sans-serif;
             color: #F8F8F2;
-            background: #FFB86C;
+            background: $foreground;
             cursor: pointer;
             transition: 0.2s ease-in-out;
             &:hover {
@@ -40,7 +50,7 @@
         width: 60%;
         height: 30rem;
         margin: 0 auto;
-        background: #434854;
+        background: $green;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -73,13 +83,13 @@
             font-weight: bold;
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            color: #8BE9FD;
+            color: $foreground;
         }
 
         .is-active {
             transition: 0.2s ease-in-out;
-            color: #50FA7B;
-            border-bottom: 4px solid #50FA7B;
+            color: $cyan;
+            border-bottom: 4px solid $selection;
         }
     }
 
@@ -87,7 +97,7 @@
         width: 60%;
         margin: 0 auto 10rem auto;
         border-radius: 10px;
-        border: 1px solid #6272A4;
+        border: 1px solid $cyan;
 
         .single-box {
             width: 100%;
@@ -101,14 +111,14 @@
                 width: 90%;
                 font-size: 1.2rem;
                 font-weight: 700;
-                color: #50FA7B;
+                color: $cyan;
                 padding-left: 0.5rem;
             }
 
             input {
                 width: 90%;
                 height: 2.5rem;
-                background: #434854;
+                background: $green;
                 color: #F8F8F2;
                 border-radius: 10px;
                 font-size: 1rem;
@@ -116,9 +126,9 @@
                 margin-top: 0.5rem;
                 padding-left: 1.5rem;
                 border: 0;
-                outline: 1px solid #50FA7B;
+                outline: 1px solid $selection;
                 &:focus {
-                    outline: 2px solid #6272A4;
+                    outline: 2px solid $selection;
                 }
             }
 
@@ -149,7 +159,7 @@
                     font-weight: bold;
                     font-family: 'Poppins', sans-serif;
                     color: #F8F8F2;
-                    background: #FFB86C;
+                    background: $foreground;
                     cursor: pointer;
                     transition: 0.2s ease-in-out;
                     &:hover {
@@ -167,7 +177,7 @@
                     font-weight: bold;
                     font-family: 'Poppins', sans-serif;
                     color: #F8F8F2;
-                    background: #6272A4;
+                    background: #181818;
                     cursor: pointer;
                     transition: 0.2s ease-in-out;
                     &:hover {
@@ -201,7 +211,7 @@
                     font-weight: bold;
                     font-family: 'Poppins', sans-serif;
                     color: #F8F8F2;
-                    background: #FFB86C;
+                    background: $foreground;
                     cursor: pointer;
                     transition: 0.2s ease-in-out;
                     &:hover {
@@ -219,7 +229,7 @@
                     font-weight: bold;
                     font-family: 'Poppins', sans-serif;
                     color: #F8F8F2;
-                    background: #6272A4;
+                    background: #50FA7B;
                     cursor: pointer;
                     transition: 0.2s ease-in-out;
                     &:hover {
@@ -227,14 +237,38 @@
                     }
                 }
             }
-
+            .tests-container{
+                label {
+                 
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: $cyan;
+                    padding-left: 0.5rem;
+                }
+                input {
+                    width: 100%;
+                    height: 2.5rem;
+                    background: $green;
+                    color: #F8F8F2;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    margin-top: 0.5rem;
+                    padding-left: 1.5rem;
+                    border: 0;
+                    outline: 1px solid $selection;
+                    &:focus {
+                        outline: 2px solid $selection;
+                    }
+                }
+            }
             .mult-container {
                 width: 100%;
                 display: flex;
                 flex-direction: row-reverse;
                 justify-content: center;
                 align-items: center;
-
+                
                 .disable-button {
                     display: none;
                 }
@@ -247,14 +281,14 @@
                     width: 90%;
                     font-size: 1.2rem;
                     font-weight: 700;
-                    color: #50FA7B;
+                    color: $cyan;
                     padding-left: 0.5rem;
                 }
 
                 input {
                     width: 100%;
                     height: 2.5rem;
-                    background: #434854;
+                    background: $green;
                     color: #F8F8F2;
                     border-radius: 10px;
                     font-size: 1rem;
@@ -262,9 +296,9 @@
                     margin-top: 0.5rem;
                     padding-left: 1.5rem;
                     border: 0;
-                    outline: 1px solid #50FA7B;
+                    outline: 1px solid $selection;
                     &:focus {
-                        outline: 2px solid #6272A4;
+                        outline: 2px solid $selection;
                     }
                 }
             }
@@ -310,7 +344,7 @@
     font-family: 'Poppins', sans-serif;
 
     h2 {
-        color: #FFB86C;
+        color: #000000;
     }
 
     p {
@@ -322,7 +356,7 @@
         height: 2.5rem;
         margin-top: 1.5rem;
         padding: 0 1rem;
-        background: #434854;
+        background: $green;
         color: #F8F8F2;
         border-radius: 10px;
         font-size: 1rem;

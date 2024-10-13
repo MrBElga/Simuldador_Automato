@@ -1,14 +1,14 @@
-$background: #282a36;
-$foreground: #f8f8f2;
-$foreTeste: #000000;
-$cyan: #3f1ff8;
-$green: #aaffbf;
-$orange: #ffb86c;
-$purple: #bd93f9;
-$red: #ff9292;
-$yellow: #f1fa8c;
-$selection: #44475a;
-$input-bg: #434854;
+$background: #FAF7F0;
+$foreground: #333333;
+$cyan: #4A4947;
+$green: #D8D2C2;
+$orange: #3a3a39;
+$purple: #242424;
+$red: #ff5555;
+$yellow: #4A4947;
+$selection: #FFE69A;
+$foreTeste: #000000; 
+$input-bg: #E9ECEF; 
 
 .page-content {
     width: 100%;
@@ -39,8 +39,8 @@ $input-bg: #434854;
         input {
             width: 65%;
             height: 2.5rem;
-            background: $input-bg;
-            color: $foreground;
+            background: $green;
+            color: $cyan;
             border-radius: 10px;
             font-size: 1rem;
             font-weight: bold;
@@ -48,7 +48,7 @@ $input-bg: #434854;
             padding-left: 1.5rem;
             border: 0;
             &:focus {
-                outline: 1px solid $cyan;
+                outline: 1px solid $selection;
             }
         }
     }
@@ -89,7 +89,7 @@ $input-bg: #434854;
                 height: 2rem;
                 margin-top: 2rem;
                 margin-right: 1rem;
-                color: $selection;
+                color: $red;
                 font-size: 1.5rem;
                 font-weight: 700;
                 cursor: pointer;
@@ -119,7 +119,7 @@ $input-bg: #434854;
                 }
 
                 .accepted {
-                    background: $green;
+                    background: #50FA7B;
                 }
 
                 .rejected {
@@ -165,13 +165,13 @@ $input-bg: #434854;
                 border-radius: 10px;
                 font-size: 1rem;
                 font-weight: bold;
-                color: $foreground;
+                color: $background;
                 background: $cyan;
                 cursor: pointer;
                 transition: 0.3s ease-in-out;
                 &:hover {
                     opacity: 0.6;
-                    background: $green;
+                    background: $foreTeste;
                 }
             }
         }

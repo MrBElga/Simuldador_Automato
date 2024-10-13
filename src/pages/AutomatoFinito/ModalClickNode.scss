@@ -1,15 +1,23 @@
-// Add Transition Modal
+$background: #FAF7F0;
+$foreground: #333333;
+$cyan: #4A4947;
+$green: #D8D2C2;
+$orange: #3a3a39;
+$purple: #242424;
+$red: #ff5555;
+$yellow: #4A4947;
+$selection: #FFE69A;
 .click-node-content {
     width: 50%;
     height: 20rem;
-    border: 1px solid #ccc;
+    border: 1px solid $selection;
     position: absolute;
     margin-top: 8rem;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
-    background: #282A36;
+    background: $background;
     overflow: auto;
     border-radius: 20px;
     outline: none;
@@ -36,7 +44,7 @@
 
     h2 {
         margin-bottom: 3rem;
-        color: #FFB86C;
+        color: $orange;
     }
 
     input {
@@ -84,7 +92,7 @@
                 font-weight: 700;
                 padding-top: 1rem;
                 padding-left: 0.3rem;
-                color: #FFB86C;
+                color: $orange;
             }
         }
     }
@@ -107,7 +115,7 @@
             font-weight: bold;
             font-family: 'Poppins', sans-serif;
             color: #F8F8F2;
-            background: #36A3C2;
+            background: $purple;
             cursor: pointer;
             transition: 0.2s ease-in-out;
             &:hover {
