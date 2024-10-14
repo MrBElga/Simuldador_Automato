@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Header } from "../header/header";
 import Image from './exp.png';
 import QuizIcon from '@mui/icons-material/Quiz';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
 import "./ExpressaoRegular.scss"
 
 
@@ -106,7 +106,7 @@ export function ExpressaoRegular() {
               <div className="tests-container">
                 {tests.map(test => (
                   <div className="string-container" key={test.id}>
-                    <RemoveCircleOutlineIcon 
+                    <DeleteIcon 
                       className={`remove-button ${test.id === 1 ? 'disable-button' : ''}`} 
                       disabled={test.id === 1} 
                       onClick={() => handleRemoveTests(test.id)}

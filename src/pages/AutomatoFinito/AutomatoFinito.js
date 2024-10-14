@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Graphviz } from 'graphviz-react'
 import {Header} from "../header/header"
 import Modal from 'react-modal';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import DeleteIcon  from '@mui/icons-material/Delete';
 
 import "./AutomatoFinito.scss";
 import "./ModalState.scss";
@@ -20,9 +20,9 @@ export function AutomatoFinito() {
     const [finalCheck, setFinalCheck] = useState(false)
     const [clickedNode, setClickedNode] = useState("")
     const [countState, setCountState] = useState(1)
-    const [states, setStates] = useState([]) //{ id: 1, name: "", start: false, final: false}
+    const [states, setStates] = useState([]) 
     const [countTransition, setCountTransition] = useState(1)
-    const [transitions, setTransitions] = useState([]) //{ id: 1, origin_state: "", input_char: "", dest_state: ""}
+    const [transitions, setTransitions] = useState([])
     const [nodesName, setNodesName] = useState([])
     const [singleTest, setSingleTest] = useState({ id: 1, string: "", accepted: "" })
     const [count, setCount] = useState(2)
@@ -31,7 +31,6 @@ export function AutomatoFinito() {
     let stepString = []
 
 
-    //Add State
     const [modalAddStateIsOpen, setModalAddStateIsOpen] = useState(false)
 
     const handleAddStateModal = () => {
@@ -44,7 +43,7 @@ export function AutomatoFinito() {
         setModalClickNodeIsOpen(prev => !prev)
     }
 
-    //Add Transition
+
     const [modalAddTransitionIsOpen, setModalAddTransitionIsOpen] = useState(false)
 
     const handleAddTransitionModal = () => {
@@ -620,14 +619,14 @@ export function AutomatoFinito() {
                             <input type="text" name="automaton-input" placeholder="insira sua string de teste aqui" onChange={event => setSingleTest({ string: event.target.value, accepted: "" })} className={`${singleTest.accepted === true ? 'accepted' : ''}` || `${singleTest.accepted === false ? 'rejected' : ''}`} />
                             <div className="single-buttons">
                                 <button className="test-button" onClick={() => validateAF(singleTest)}>Testar</button>
-                                {/*<button className="step-button" onClick={handleStepByStepModal}>Step-by-step</button>*/}
+                            
                             </div>
                         </div>
                         <div className="multi-box">
                             <div className="tests-container">
                                 {tests.map(test => (
                                     <div className="string-container" key={test.id}>
-                                        <RemoveCircleOutlineIcon className={`remove-button ${test.id === 1 ? 'disable-button' : ''}`} disabled={test.id === 1} onClick={() => handleRemoveTests(test.id)} />
+                                        <DeleteIcon className={`remove-button ${test.id === 1 ? 'disable-button' : ''}`} disabled={test.id === 1} onClick={() => handleRemoveTests(test.id)} />
                                         <div className={`box-string ${test.id === 1 ? 'fix-margin' : ''}`}>
                                             <label htmlFor="string">TESTAR STRING</label>
                                             <input type="text" name="string" className={`${test.accepted === true ? 'accepted' : ''}` || `${test.accepted === false ? 'rejected' : ''}`} onChange={event => handleChangeInput(test.id, event)} placeholder="insira sua string de teste aqui" />
