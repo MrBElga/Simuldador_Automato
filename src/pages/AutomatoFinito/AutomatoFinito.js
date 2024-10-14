@@ -320,29 +320,31 @@ export function AutomatoFinito() {
     }
 
     const validateAFMult = (inputTest) => {
-        let str = ""
+        let str = "";
         if (typeof inputTest !== "undefined") {
-            str = inputTest
+            str = inputTest;
         }
-
+    
         if (transitions.length > 0) {
-            const grammar = AFtoGLUD()
-            let currNode = ""
+            const grammar = AFtoGLUD();
+            let currNode = "";
             for (const element of nodesName) {
                 if (element.nodeGRName === grammar[0].nonterminal) {
-                    currNode = element
+                    currNode = element;
                 }
             }
-
+    
             for (let rule of grammar[0].terminal) {
-                stepString = []
+                stepString = [];
                 if (validateRule(grammar, rule, str, currNode)) {
-                    setStepStringArray(stepString)
-                };
+                    setStepStringArray(stepString);
+                    return true;  // Deve retornar verdadeiro se a string é aceita
+                }
             }
-            return false
+            return false;  // Retorna falso caso não seja aceita
         }
-    }
+    };
+    
 
     const validateAF = (inputTest) => {
         const stateInitial = states.filter(state => state.start)
@@ -426,6 +428,7 @@ export function AutomatoFinito() {
             if (id === i.id) {
                 let value = event.target.value
                 i[event.target.name] = value
+                i.accepted = ""
             }
             return i;
         })
@@ -433,23 +436,21 @@ export function AutomatoFinito() {
     }
 
     const handleMultTest = () => {
-
-        const stateInitial = states.filter(state => state.start)
-        const stateFinalArray = states.filter(state => state.final)
-
+        const stateInitial = states.filter(state => state.start);
+        const stateFinalArray = states.filter(state => state.final);
+    
         if (stateInitial.length > 0 && stateFinalArray.length > 0) {
-            const newInputTests = []
+            const newInputTests = [];
             for (const element of tests) {
-                let accepted = validateAFMult(element.string)
-                newInputTests.push({ id: element.id, string: element.string, accepted: accepted })
+                let accepted = validateAFMult(element.string);  // Verifica se a string é aceita
+                newInputTests.push({ id: element.id, string: element.string, accepted: accepted });
             }
-            setTests(newInputTests)
+            setTests(newInputTests);  // Atualiza o estado com os resultados
+        } else {
+            alert("Autômato inválido, defina um estado inicial e final");
         }
-        else {
-            alert("Autômato inválido, defina um estado inicial e final")
-        }
-
-    }
+    };
+    
 
     return (
         <>
@@ -614,7 +615,7 @@ export function AutomatoFinito() {
                         <button className="multi-test select" onClick={event => changeTestType(event)} >Entradas múltiplas</button>
                     </div>
                     <div className="test-box">
-                        <div className="single-box">
+                        <div className="single-box" >
                             <label id="automaton-label" htmlFor="automaton-input"> TESTAR STRING</label>
                             <input type="text" name="automaton-input" placeholder="insira sua string de teste aqui" onChange={event => setSingleTest({ string: event.target.value, accepted: "" })} className={`${singleTest.accepted === true ? 'accepted' : ''}` || `${singleTest.accepted === false ? 'rejected' : ''}`} />
                             <div className="single-buttons">
