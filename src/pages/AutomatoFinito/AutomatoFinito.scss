@@ -1,5 +1,5 @@
 $background: #FAF7F0;
-$foreground: #333333;
+$foreground: #000000;
 $cyan: #4A4947;
 $green: #D8D2C2;
 $orange: #3a3a39;
@@ -84,6 +84,7 @@ $selection: #FFE69A;
             text-align: center;
             font-family: 'Poppins', sans-serif;
             color: $foreground;
+            margin: 0 20px; 
         }
 
         .is-active {
@@ -119,7 +120,7 @@ $selection: #FFE69A;
                 width: 90%;
                 height: 2.5rem;
                 background: $green;
-                color: #F8F8F2;
+                color: #000000;
                 border-radius: 10px;
                 font-size: 1rem;
                 font-weight: bold;
@@ -133,11 +134,11 @@ $selection: #FFE69A;
             }
 
             .rejected {
-                background: rgba(255, 0, 0, 0.7);
+                background: rgba(252, 94, 94, 0.7);
             }
 
             .accepted {
-                background: rgba(0, 255, 0, 0.7);
+                background: rgba(96, 255, 96, 0.7);
             }
 
             .single-buttons {
@@ -192,6 +193,14 @@ $selection: #FFE69A;
             min-height: 15rem;
             display: none;
 
+            .rejected {
+                background: rgba(252, 94, 94, 0.7);
+            }
+
+            .accepted {
+                background: rgba(96, 255, 96, 0.7);
+            }
+
             .mult-buttons {
                 width: 90%;
                 height: 3rem;
@@ -229,7 +238,7 @@ $selection: #FFE69A;
                     font-weight: bold;
                     font-family: 'Poppins', sans-serif;
                     color: #F8F8F2;
-                    background: #50FA7B;
+                    background: #181818;
                     cursor: pointer;
                     transition: 0.2s ease-in-out;
                     &:hover {
@@ -249,7 +258,7 @@ $selection: #FFE69A;
                     width: 100%;
                     height: 2.5rem;
                     background: $green;
-                    color: #F8F8F2;
+                    color: #000000;
                     border-radius: 10px;
                     font-size: 1rem;
                     font-weight: bold;
