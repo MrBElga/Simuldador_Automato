@@ -218,7 +218,7 @@ export function GramaticaRegular() {
                     
 
                     <div className="grammar-container">
-                        <img src={grImage} alt="automatos" />
+                        <img className="image-container" src={grImage} alt="automatos" />
                         {rules.map(rule => (
                             <div className="production-container" key={rule.id}>
                                 <div className="production-rule">

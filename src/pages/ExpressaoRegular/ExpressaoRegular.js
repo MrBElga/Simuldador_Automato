@@ -111,7 +111,7 @@ export function ExpressaoRegular() {
                       onClick={() => handleRemoveTests(test.id)}
                     />
       
-                    <div className={`box-string ${test.id === 1 ? 'fix-margin' : ''}`}>
+                    <div className={`box-string ${test.id === 1 ? 'fix-margin'  : ''}`}>
                       <label htmlFor={`string-${test.id}`}>String de Teste</label>
                       <input 
                         type="text" 
