@@ -238,7 +238,15 @@ $input-bg: #E9ECEF;
                 }
             }
         }
-       
+        .image-container {
+            margin-top: 2rem;
+            img {
+                width: 100%;
+                max-width: 600px;
+                border-radius: 10px;
+                background-color: $background;
+            }
+        }
         
     }
     
