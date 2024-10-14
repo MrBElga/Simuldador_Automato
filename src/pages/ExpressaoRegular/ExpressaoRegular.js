@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "../header/header";
+import Image from './exp.png';
 import QuizIcon from '@mui/icons-material/Quiz';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import "./ExpressaoRegular.scss"
@@ -130,7 +131,11 @@ export function ExpressaoRegular() {
                 </div>
               </div>
             </div>
+            <div className="image-container">
+                <img src={Image} alt="automatos" />
+            </div>
           </div>
+          
         </div>
       );
       
