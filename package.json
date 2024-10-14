@@ -1,5 +1,5 @@
 {
-  "name": "simulador_de_linguagens_regulares",
+  "name": "Automato_Simulator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
