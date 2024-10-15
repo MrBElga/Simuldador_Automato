@@ -4,6 +4,7 @@ import { Graphviz } from 'graphviz-react'
 import {Header} from "../header/header"
 import Modal from 'react-modal';
 import DeleteIcon  from '@mui/icons-material/Delete';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import "./AutomatoFinito.scss";
 import "./ModalState.scss";
@@ -14,7 +15,7 @@ import "./ModalClickNode.scss"
 
 Modal.setAppElement('body')
 
-export function AutomatoFinito() {
+export function AutomatoFinito() { 
     const [graphString, setGraphString] = useState(`digraph{}`)
     const [startCheck, setStartCheck] = useState(false)
     const [finalCheck, setFinalCheck] = useState(false)
@@ -338,10 +339,10 @@ export function AutomatoFinito() {
                 stepString = [];
                 if (validateRule(grammar, rule, str, currNode)) {
                     setStepStringArray(stepString);
-                    return true;  // Deve retornar verdadeiro se a string é aceita
+                    return true;
                 }
             }
-            return false;  // Retorna falso caso não seja aceita
+            return false; 
         }
     };
     
@@ -442,10 +443,10 @@ export function AutomatoFinito() {
         if (stateInitial.length > 0 && stateFinalArray.length > 0) {
             const newInputTests = [];
             for (const element of tests) {
-                let accepted = validateAFMult(element.string);  // Verifica se a string é aceita
+                let accepted = validateAFMult(element.string);  
                 newInputTests.push({ id: element.id, string: element.string, accepted: accepted });
             }
-            setTests(newInputTests);  // Atualiza o estado com os resultados
+            setTests(newInputTests); 
         } else {
             alert("Autômato inválido, defina um estado inicial e final");
         }
@@ -597,7 +598,11 @@ export function AutomatoFinito() {
                     </div>
                 </Modal>
 
-                <h1 className="title">Simulador de Autômatos</h1>
+                    
+                <h1 className="title">
+                    <SettingsIcon style={{ fontSize: 40, marginRight: '10px' }} />
+                    Autômatos
+                </h1>
                 <div className="page-content">
                     <div className="automaton-menu">
                         <button className="menu-button" onClick={handleAddStateModal}>Adicionar Estado</button>
@@ -636,7 +641,7 @@ export function AutomatoFinito() {
                                 ))}
                                 <div className="mult-buttons">
                                     <button className="test-button" onClick={handleMultTest} >Testar</button>
-                                    <button className="add-button" onClick={handleAddTests} >+ Adicionar Teste</button>
+                                    <button className="add-button" onClick={handleAddTests} >+ Teste</button>
                                 </div>
                             </div>
                         </div>
