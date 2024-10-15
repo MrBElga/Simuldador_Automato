@@ -60,28 +60,35 @@ export function AutomatoFinito() {
 
     const handleRemoveStateModal = () => {
         setModalRemoveStateIsOpen(prev => !prev)
-    }
+    }    
 
+    const colors = ['#F4E1D2', '#E6DADA', '#F0E1D6', '#D1E8E2']; 
 
     useEffect(() => {
         const handleGraphvizString = () => {
-            let transitionsArray = transitions
-
-            let statesArray = states
-
-            let string = `digraph{`
-            let color = "#61DAFB"
-            for (const element of statesArray) {
-                string += element.name + `[shape=${element.final ? 'doublecircle' : 'circle'} style=filled  fillcolor="${element.start ? color : ''}"];`
-            }
-            for (const element of transitionsArray) {
-                string += element.origin_state + "->" + element.dest_state + `[label=${element.input_char}]`
-            }
-            string += `bgcolor=transparent}`
-            setGraphString(string)
-        }
+            let transitionsArray = transitions;
+            let statesArray = states;
+            let string = `digraph{`;
+            
+            // Aplique uma cor para cada nó e destaque o estado inicial com uma cor chamativa
+            statesArray.forEach((element, index) => {
+                const nodeColor = element.start ? '#FFDD00' : colors[index % colors.length]; // Cor chamativa para o estado inicial
+                string += `${element.name} [shape=${element.final ? 'doublecircle' : 'circle'} style=filled fillcolor="${nodeColor}"];`;
+            });
+    
+            transitionsArray.forEach((element) => {
+                string += `${element.origin_state} -> ${element.dest_state} [label=${element.input_char}];`;
+            });
+            
+            string += `bgcolor=transparent}`;
+            setGraphString(string);
+        };
+    
         handleGraphvizString();
-    });
+    }, [states, transitions]);
+    
+    
+    
 
 
     const handleClickNode = (e) => {
@@ -451,7 +458,7 @@ export function AutomatoFinito() {
             alert("Autômato inválido, defina um estado inicial e final");
         }
     };
-    
+   
 
     return (
         <>
@@ -611,7 +618,7 @@ export function AutomatoFinito() {
                         <button className="menu-button" disabled={transitions.length < 1} onClick={handleRemoveTransitionModal}>Remover Transição</button>
                     </div>
                     <div id="automaton" className="automaton-box">
-                        <Graphviz options={{ fit: true, scale: 1, zoom: false }} dot={graphString} />
+                        <Graphviz options={{ fit: true, scale: 0.6, zoom: false }} dot={graphString} />
                     </div>
 
 
