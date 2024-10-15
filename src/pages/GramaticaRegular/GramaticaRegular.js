@@ -1,7 +1,8 @@
 import { useState } from "react";
 import {Header} from "../header/header";
 import grImage from './gr.png';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 import "./GramaticaRegular.scss"
 
 export function GramaticaRegular() {
@@ -24,7 +25,6 @@ export function GramaticaRegular() {
         console.log(id);
         if (id === 1) {
             alert("O primeiro item não pode ser removido.");
-            return;
         } else {
             const values = [...rules];
             values.splice(values.findIndex(value => value.id === id), 1);
@@ -204,8 +204,11 @@ export function GramaticaRegular() {
     return (
         <div>
             <Header />
-            <div className="container">
+            <div className="container">     
+        
                 <h1 className="title">Simulador de Gramatica Regular</h1>
+  
+                
                 <div className="page-content">
                     <div className="instructions-container">
                         <p>Insira sua Gramática Regular (GLUD ou GLUE) nos campos abaixo. O símbolo inicial já está preenchido automaticamente.</p>
@@ -228,7 +231,7 @@ export function GramaticaRegular() {
                                 </div>
                                 <div className={`error-sintax ${rule.terminal === rule.nonterminal ? 'block' : 'inactive'}`} >Erro de Sintaxe</div>
                                 {handleValidator(rule.terminal, rule.nonterminal)}
-                                <RemoveCircleOutlineIcon 
+                                <DeleteIcon 
                                     className={`removeButton ${rule.id === 1 ? '' : ''}`} 
                                     onClick={() => handleRemoveFields(rule.id)} 
                                 />
