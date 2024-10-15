@@ -4,6 +4,7 @@ $cyan: #4A4947;
 $green: #D8D2C2;
 $orange: #3a3a39;
 $purple: #242424;
+$option: #c9c9c9;
 $red: #ff5555;
 $yellow: #4A4947;
 $selection: #FFE69A;
@@ -116,7 +117,7 @@ $selection: #FFE69A;
                 // Estilo das opções
                 option {
                     color: #000000;  // Texto das opções em preto
-                    background: $purple;  // Fundo das opções
+                    background: $option;  // Fundo das opções
                 }
     
                 // Garantir que a seleção será visível
