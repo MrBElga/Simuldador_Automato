@@ -2,6 +2,7 @@ import { useState } from "react";
 import {Header} from "../header/header";
 import grImage from './gr.png';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SchoolIcon from '@mui/icons-material/School';
 
 import "./GramaticaRegular.scss"
 
@@ -206,8 +207,11 @@ export function GramaticaRegular() {
             <Header />
             <div className="container">     
         
-                <h1 className="title">Simulador de Gramatica Regular</h1>
-  
+            <h1 className="title">
+            <SchoolIcon style={{ fontSize: 40, marginRight: '10px' }} />
+            Gramática Regular
+            </h1>
+
                 
                 <div className="page-content">
                     <div className="instructions-container">

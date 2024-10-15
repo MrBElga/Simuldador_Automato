@@ -3,6 +3,9 @@ import { Header } from "../header/header";
 import Image from './exp.png';
 import QuizIcon from '@mui/icons-material/Quiz';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CodeIcon from '@mui/icons-material/TextFields';
+
+
 import "./ExpressaoRegular.scss"
 
 
@@ -86,7 +89,11 @@ export function ExpressaoRegular() {
         <div> 
             <Header />
           <div className="container">
-            <h1 className="title">Simulador de Expressão Regular</h1>
+          <h1 className="title">
+            <CodeIcon style={{ fontSize: 40, marginRight: '10px' }} />
+            Expressão Regular
+          </h1>
+
             <div className="page-content">
               <div className="RegEX">
                 <label id="regex-label" htmlFor="regex-input">EXPRESSÃO REGULAR</label>
