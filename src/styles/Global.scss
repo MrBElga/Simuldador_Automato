@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 *,
 *::before,
@@ -6,11 +6,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f4f4f4; /* Cor de fundo suave */
@@ -18,7 +18,12 @@ body {
   line-height: 1.6; /* Melhor legibilidade */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0.5rem 0;
   font-weight: 600;
@@ -33,7 +38,7 @@ label {
   width: 90%;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #333;  // Verde vintage
+  color: #333; // Verde vintage
   padding-left: 0.5rem;
 }
 a:hover {
@@ -47,7 +52,9 @@ button {
   font-family: inherit;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 0.8rem;
@@ -56,7 +63,8 @@ input, select, textarea {
   transition: border-color 0.3s ease;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   border-color: #ffc400;
 }
-

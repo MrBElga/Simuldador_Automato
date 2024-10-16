@@ -611,16 +611,16 @@ export function AutomatoFinito() {
                     Autômatos
                 </h1>
                 <div className="page-content">
+                 
+                    <div id="automaton" className="automaton-box">
+                        <Graphviz options={{ fit: true, scale: 0.6, zoom: false }} dot={graphString} />
+                    </div>
                     <div className="automaton-menu">
                         <button className="menu-button" onClick={handleAddStateModal}>Adicionar Estado</button>
                         <button className="menu-button" onClick={handleAddTransitionModal} disabled={states.length < 1} >Adicionar Transição</button>
                         <button className="menu-button" disabled={states.length < 1} onClick={handleRemoveStateModal}>Remover Estado</button>
                         <button className="menu-button" disabled={transitions.length < 1} onClick={handleRemoveTransitionModal}>Remover Transição</button>
                     </div>
-                    <div id="automaton" className="automaton-box">
-                        <Graphviz options={{ fit: true, scale: 0.6, zoom: false }} dot={graphString} />
-                    </div>
-
 
                     <div className="select-test">
                         <button className="single-test select is-active" onClick={event => changeTestType(event)} >Entrada única</button>
