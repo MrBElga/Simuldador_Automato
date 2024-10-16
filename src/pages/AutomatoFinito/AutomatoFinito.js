@@ -648,7 +648,7 @@ export function AutomatoFinito() {
                                 ))}
                                 <div className="mult-buttons">
                                     <button className="test-button" onClick={handleMultTest} >Testar</button>
-                                    <button className="add-button" onClick={handleAddTests} >+ Teste</button>
+                                    <button className="add-button" onClick={handleAddTests} >+</button>
                                 </div>
                             </div>
                         </div>
