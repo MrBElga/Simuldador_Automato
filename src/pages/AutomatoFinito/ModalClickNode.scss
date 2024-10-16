@@ -1,144 +1,144 @@
-$background: #FAF7F0;
+$background: #faf7f0;
 $foreground: #333333;
-$cyan: #4A4947;
-$green: #D8D2C2;
+$cyan: #4a4947;
+$green: #d8d2c2;
 $orange: #3a3a39;
 $purple: #242424;
 $option: #c9c9c9;
 $red: #ff5555;
-$yellow: #4A4947;
-$selection: #FFE69A;
+$yellow: #4a4947;
+$selection: #ffe69a;
 .click-node-content {
-    width: 50%;
-    height: 20rem;
-    border: 1px solid $selection;
-    position: absolute;
-    margin-top: 8rem;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    background: $background;
-    overflow: auto;
-    border-radius: 20px;
-    outline: none;
-    padding: 20px;
-    z-index: 10;
+  width: 50%;
+  height: 20rem;
+  border: 1px solid $selection;
+  position: absolute;
+  margin-top: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  background: $background;
+  overflow: auto;
+  border-radius: 20px;
+  outline: none;
+  padding: 20px;
+  z-index: 10;
 }
 
 .click-node-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .click-node-box {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+
+  h2 {
+    margin-bottom: 3rem;
+    color: $orange;
+  }
+
+  input {
+    width: 50%;
+    height: 2.5rem;
+    margin-top: 1.5rem;
+    box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+    padding-top: calc(0.5rem - 1px);
+    padding-bottom: calc(0.5rem - 1px);
+    padding-left: calc(0.75rem - 1px);
+    padding-right: calc(0.75rem - 1px);
+    border-radius: 0.375rem;
+    outline: 0;
+    border: 1px solid #50fa7b;
+    background: #434854;
+    color: #f8f8f2;
+    &:focus {
+      border: 1px solid #8be9fd;
+      outline: 2px solid #6272a4;
+    }
+  }
+
+  .checkbox-box {
+    width: 80%;
+    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
 
-    h2 {
-        margin-bottom: 3rem;
+    .checkbox-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      input {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+      }
+
+      label {
+        font-weight: 700;
+        padding-top: 1rem;
+        padding-left: 0.3rem;
         color: $orange;
+      }
+    }
+  }
+
+  .click-node-buttons {
+    width: 70%;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3rem;
+
+    .click-node-button {
+      width: 35%;
+      height: 2.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: "Poppins", sans-serif;
+      color: #f8f8f2;
+      background: $purple;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+      }
     }
 
-    input {
-        width: 50%;
-        height: 2.5rem;
-        margin-top: 1.5rem;
-        box-shadow: inset 0 .0625em .125em rgba(10, 10, 10, .05);
-        padding-top: calc(.5rem - 1px);
-        padding-bottom: calc(.5rem - 1px);
-        padding-left: calc(.75rem - 1px);
-        padding-right: calc(.75rem - 1px);
-        border-radius: .375rem;
-        outline: 0;
-        border: 1px solid #50FA7B;
-        background: #434854;
-        color: #F8F8F2;
-        &:focus {
-            border: 1px solid #8BE9FD;
-            outline: 2px solid #6272A4;
-        }
+    .cancel-node-button {
+      width: 35%;
+      height: 2.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: "Poppins", sans-serif;
+      color: #f8f8f2;
+      background: #ff5555;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+      }
     }
-
-    .checkbox-box {
-        width: 80%;
-        margin-top: 2rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-
-        .checkbox-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-
-            input {
-                width: 40px;
-                height: 40px;
-                padding: 0;
-            }
-
-            label {
-                font-weight: 700;
-                padding-top: 1rem;
-                padding-left: 0.3rem;
-                color: $orange;
-            }
-        }
-    }
-
-    .click-node-buttons {
-        width: 70%;
-        height: 3rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 3rem;
-
-        .click-node-button {
-            width: 35%;
-            height: 2.5rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            font-family: 'Poppins', sans-serif;
-            color: #F8F8F2;
-            background: $purple;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-            &:hover {
-                opacity: 0.6;
-            }
-        }
-
-        .cancel-node-button {
-            width: 35%;
-            height: 2.5rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            font-family: 'Poppins', sans-serif;
-            color: #F8F8F2;
-            background: #FF5555;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-            &:hover {
-                opacity: 0.6;
-            }
-        }
-    }
+  }
 }

@@ -1,188 +1,188 @@
-$background: #FAF7F0;
+$background: #faf7f0;
 $foreground: #333333;
-$cyan: #4A4947;
-$green: #D8D2C2;
+$cyan: #4a4947;
+$green: #d8d2c2;
 $orange: #3a3a39;
 $purple: #242424;
 $red: #ff5555;
-$yellow: #4A4947;
-$selection: #FFE69A;
-$foreTeste: #000000; 
-$input-bg: #E9ECEF; 
+$yellow: #4a4947;
+$selection: #ffe69a;
+$foreTeste: #000000;
+$input-bg: #e9ecef;
 
 .page-content {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .RegEX {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
 
-    .RegEX {
+    label {
+      width: 65%;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $cyan;
+      padding-left: 0.5rem;
+
+      .error-msg {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $red;
+      }
+    }
+
+    input {
+      width: 65%;
+      height: 2.5rem;
+      background: $green;
+      color: $cyan;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+      border: 0;
+      &:focus {
+        outline: 1px solid $selection;
+      }
+    }
+  }
+
+  .tests-title {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+
+    .science-icon {
+      width: 40px;
+      height: 40px;
+      color: $foreground;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 25px;
+      color: $foreground;
+    }
+  }
+
+  .tests-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .string-container {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      .remove-button {
+        width: 2rem;
+        height: 2rem;
+        margin-top: 2rem;
+        margin-right: 1rem;
+        color: $red;
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          opacity: 0.6;
+          color: $red;
+        }
+      }
+
+      .disable-button {
+        display: none;
+      }
+
+      .fix-margin {
+        margin-left: 3rem;
+      }
+
+      .box-string {
+        width: 70%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        margin-top: 2rem;
+
+        .base {
+          background: $green;
+        }
+
+        .accepted {
+          background: rgba(40, 156, 40, 0.7);
+        }
+
+        .rejected {
+          background: $red;
+        }
 
         label {
-            width: 65%;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: $cyan;
-            padding-left: 0.5rem;
-            
-            .error-msg {
-                font-size: 1.2rem;
-                font-weight: 700;
-                color: $red;
-            }
+          width: 100%;
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: $cyan;
+          padding-left: 0.5rem;
         }
 
         input {
-            width: 65%;
-            height: 2.5rem;
-            background: $green;
-            color: $cyan;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            margin-top: 0.5rem;
-            padding-left: 1.5rem;
-            border: 0;
-            &:focus {
-                outline: 1px solid $selection;
-            }
+          width: 100%;
+          height: 3rem;
+          background: $green;
+          color: $foreTeste;
+          border-radius: 10px;
+          font-size: 1rem;
+          font-weight: bold;
+          padding-left: 1.5rem;
+          border: 0;
+          &:focus {
+            outline: 1px solid $cyan;
+          }
         }
+      }
     }
 
-    .tests-title {
-        margin-top: 3rem;
-        display: flex;
-        justify-content: center;
+    .box-button {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 4rem;
 
-        .science-icon {
-            width: 40px;
-            height: 40px;
-            color: $foreground;
+      .add-button {
+        width: 70%;
+        height: 3rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: $background;
+        background: $cyan;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          opacity: 0.6;
+          background: $foreTeste;
         }
-
-        h2 {
-            text-align: center;
-            font-size: 25px;
-            color: $foreground;
-        }
+      }
     }
-
-    .tests-container {
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .string-container {
-            width: 80%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 2rem;
-
-            .remove-button {
-                width: 2rem;
-                height: 2rem;
-                margin-top: 2rem;
-                margin-right: 1rem;
-                color: $red;
-                font-size: 1.5rem;
-                font-weight: 700;
-                cursor: pointer;
-                transition: 0.3s ease-in-out;
-                &:hover {
-                    opacity: 0.6;
-                    color: $red;
-                }
-            }
-
-            .disable-button {
-                display: none;
-            }
-
-            .fix-margin {
-                margin-left: 3rem;
-            }
-
-            .box-string {
-                width: 70%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-                .base {
-                    background: $green;  
-                }
-
-                .accepted {
-                    background: rgba(40, 156, 40, 0.7);
-                }
-
-                .rejected {
-                    background: $red;
-                }
-
-                label {
-                    width: 100%;
-                    font-size: 1.2rem;
-                    font-weight: 700;
-                    color: $cyan;
-                    padding-left: 0.5rem;
-                }
-
-                input {
-                    width: 100%;
-                    height: 3rem;
-                    background: $green;
-                    color: $foreTeste;
-                    border-radius: 10px;
-                    font-size: 1rem;
-                    font-weight: bold;
-                    padding-left: 1.5rem;
-                    border: 0;
-                    &:focus {
-                        outline: 1px solid $cyan;
-                    }
-                }
-            }
-        }
-
-        .box-button {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 4rem;
-
-            .add-button {
-                width: 70%;
-                height: 3rem;
-                border: none;
-                border-radius: 10px;
-                font-size: 1rem;
-                font-weight: bold;
-                color: $background;
-                background: $cyan;
-                cursor: pointer;
-                transition: 0.3s ease-in-out;
-                &:hover {
-                    opacity: 0.6;
-                    background: $foreTeste;
-                }
-            }
-        }
+  }
+  .image-container {
+    margin-top: 2rem;
+    img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      background-color: $background;
     }
-    .image-container {
-        margin-top: 2rem;
-        img {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-            background-color: $background;
-        }
-    }
+  }
 }
